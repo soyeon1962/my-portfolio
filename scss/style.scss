@@ -1,0 +1,1462 @@
+/*Import Local Scss Files*/
+@import 'fonts', 'reset', 'variables';
+
+
+/*#####풀페이지#####*/
+.section{
+  text-align: center;
+  font-size: 2rem;
+  background-color: $backgroundMainColor;
+}
+
+body.lock-scroll .section01{
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+//##########fetch##########//
+.section, body{
+  position: relative;
+}
+
+.win98-dock{
+  color: $white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 172px;
+  height: 551px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 0;
+  .win98-icon-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    img{
+      width: 92px;
+      height: 92px;
+    }
+    span{
+      font-size: 24px;
+      text-wrap: nowrap;
+    }
+  }
+}
+
+.window-frame{
+  .window-titlebar{
+    .titlebar-button-wrap{
+      display: flex;
+      gap: 3px;
+      margin-top: 2px;
+      .titlebar-btn{
+        width: 23px;
+        height: 23px;
+        background: url(../images/background-shodow-line-23_23.png);
+        background-color: $windowFrameBackgroundColor;
+        position: relative;
+        cursor: pointer;
+        &.window-minimize-btn img{
+          position: absolute;
+          left: 6px;
+          bottom: 3px;
+        }
+        &.window-resize-btn img, &.window-close-btn img{
+          position: absolute;
+          left: 4px;
+          bottom: 4px;
+        }
+        &.clicked{
+          background: url(../images/background-shodow-line-23_23-hover.png);
+          background-color: $windowFrameBackgroundColor;
+          &.window-minimize-btn img{
+            left: 7px;
+            bottom: 2px;
+          }
+          &.window-resize-btn img, &.window-close-btn img{
+            left: 5px;
+            bottom: 3px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.window-frame{
+  display: inline-block;
+}
+
+.window-frame.close{
+  display: none;
+}
+
+.taskbar-container{
+  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 99999999;
+  .taskbar{
+    width: 100vw;
+    height: 40px;
+    background-color: $windowFrameBackgroundColor;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 2px solid #F2F2F2;
+    border-bottom: 1px solid #F2F2F2;
+    z-index: 100;
+  }
+  .start-menu{
+    position: relative;
+    position: absolute;
+    width: 224px;
+    height: 86px;
+    background: url(../images/background-shodow-line-224_86.png)  no-repeat;
+    background-color: $windowFrameBackgroundColor;
+    bottom: -239px;
+    left: 0;
+    transition: .5s;
+    opacity: 0;
+    z-index: 0;
+    &.active{
+      opacity: 1;
+      bottom: 40px;
+    }
+    .gradiant-bar{
+      width: 35px;
+      height: 84px;
+      background: linear-gradient(to bottom, #0055D4 0%, #010088 100%);
+      position: absolute;
+      top: 1px;
+      left: 1px;
+    }
+    .start-btn{
+      position: absolute;
+      height: 43px;
+      width: 188px;
+      right: 1px;
+      display: flex;
+      align-items: center;
+      gap: 0 12px;
+      cursor: pointer;
+      &:hover{
+        background-color: #000080;
+        color: #fff;
+      }
+      &.restart-btn{
+        top: 1px;
+      }
+      &.shutdown-btn{
+        top: 44px;
+      }
+      img{
+        width: 32px;
+        height: 32px;
+      }
+      span{
+        font-size: 16px;
+      }
+    }
+  }
+  .button-event{
+    position: relative;
+    display: block;
+    width: 200px;
+    height: 33px;
+    background: url(../images/background-shodow-line-200_33.png) no-repeat;
+    background-color: $windowFrameBackgroundColor;
+    img{
+      position: absolute;
+      top: 3px;
+      left: 4px;
+    }
+    span{
+      position: absolute;
+      top: 8px;
+      left: 35px;
+      font-size: 16px;
+      width: 160px;
+      text-wrap: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+    }
+    &.clicked{
+      background: url(../images/background-shodow-line-200_33-hover.png) no-repeat;
+      background-color: $windowFrameBackgroundColor;
+      img{
+        left: 5px;
+      }
+      span{
+        left: 36px;
+      }
+    }
+    &.hidden{
+      display: none;
+    }
+    &.active{
+      background: url(../images/background-shodow-line-200_33-hover.png) no-repeat;
+      background-color: $windowFrameBackgroundColor;
+      img{
+        left: 5px;
+      }
+      span{
+        left: 36px;
+      }
+    }
+    &.active.clicked{
+      background: url(../images/background-shodow-line-200_33.png) no-repeat;
+      background-color: $windowFrameBackgroundColor;
+    }
+  }
+  .start-button{
+    width: 79px;
+    height: 33px;
+    background: url(../images/background-shodow-line-79_33.png) no-repeat;
+    background-color: $windowFrameBackgroundColor;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    z-index: 100;
+    span{
+      left: 35px;
+      width: fit-content;
+    }
+    &.clicked{
+      background: url(../images/background-shodow-line-79_33-hover.png) no-repeat;
+      background-color: $windowFrameBackgroundColor;
+    }
+  }
+  .profile-button{
+    img{
+      height: 25px;
+    }
+  }
+  .project-button{
+    img{
+      height: 25px;
+    }
+  }
+  .project-one-button{
+    img{
+      height: 18px;
+      top: 6px;
+    }
+  }
+  .project-two-button{
+    img{
+      height: 23px;
+      top: 4px;
+    }
+  }
+  .project-three-button{
+    img{
+      height: 23px;
+      top: 4px;
+    }
+  }
+  .taskbar-button-wrap{
+    position: absolute;
+    height: 33px;
+    top: 2px;
+    left: 86px;
+    display: flex;
+    gap: 5px;
+  }
+  .skill-button{
+    img{
+      height: 25px;
+    }
+  }
+  .tray{
+    width: 174px;
+    height: 33px;
+    background: url(../images/background-shodow-line-174_33.png) no-repeat;
+    background-color: $windowFrameBackgroundColor;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 0 10px;
+    .tray-img{
+      display: flex;
+      height: 100%;
+      align-items: center;
+      gap: 5px;
+    }
+    span{
+      position: absolute;
+      top: 50%;
+      left: 84px;
+      transform: translateY(-50%);
+      font-size: 16px;
+    }
+  }
+}
+
+/*#####common#####*/
+.window-frame{
+  position: relative;
+  position: absolute;
+  padding: $windowFramePadding;
+  .window-titlebar{
+    height: 31px;
+    background: $windowTitlebarColor;
+    padding: $windowTitlebarPadding;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    h3{
+      font-size: 24px;
+      text-align: left;
+      color: $white;
+    }
+  }
+  &.minimize{
+    display: none;
+  }
+}
+
+$skills : (
+  html : #E65100,
+  css : #42A5F5,
+  javascript : #FFCA28,
+  scss : #EC407A,
+  react : #00BCD4,
+  swiper : #0080FF,
+  api : #00DF63,
+  json : #DE9825,
+  jquery : #0766A1,
+  figma : #874FFF,
+  ai : #FF9A00,
+  ps : #288FDB,
+  blender : #E87D0D,
+  vscode : #25B0F3,
+  github : #F6F8FA,
+  netlify : #06BDBA,
+);
+
+$skillsPercent : (
+  html: 95%,
+  css: 90%,
+  javascript: 80%,
+  scss: 85%,
+  react: 80%,
+  swiper : 90%,
+  api : 85%,
+  json : 85%,
+  jquery : 70%,
+  figma : 90%,
+  ai : 90%,
+  ps : 50%,
+  blender : 40%,
+  vscode : 95%,
+  github : 90%,
+  netlify : 60%,
+);
+
+div.section{
+  .window-frame{
+    &.resize{
+      width: 100vw;
+      height: calc(100dvh - 40px);
+      top: 0;
+      bottom: 40px;
+      right: 0;
+      left: 0;
+      overflow: hidden;
+      background: none;
+      background-color: $windowFrameBackgroundColor;
+      &::before{
+        content: '';
+        width: 1924px;
+        height: 1925px;
+        background: url(../images/background-shodow-line-fff.png) no-repeat;
+        position: absolute;
+        background-size: contain;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+      &::after{
+        content: '';
+        width: 1924px;
+        height: 1925px;
+        background: url(../images/background-shodow-line-000.png) no-repeat;
+        position: absolute;
+        background-size: contain;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+      }
+      .window-titlebar{
+        width: calc(100vw - 10px);
+      }
+      .skills-window-content{
+        width: calc(100vw - 100px);
+        height: calc(100dvh - 218px);
+        left: 50%;
+        top: 109px;
+        transform: translateX(-50%);
+        .skill-tap{
+          display: none;
+        }
+        .resized-content{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 3.2vh 0;
+          .skill-box{
+            width: 22.8vw;
+            min-width: 337px;
+            display: flex;
+            gap: 1.6vw;
+            img{
+              height: 8.2vw;
+            }
+            .skill-description{
+              flex: 1;
+              margin: 0.3333vw 0;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              span{
+                width: 100%;
+                font-size: 16px;
+                margin-top: 1vw;
+                display: block;
+                text-wrap: wrap;
+              }
+            }
+            @each $skill, $color in $skills{
+              &.skill-#{$skill}-box{
+                .skill-bar-wrap .skill-bar{
+                  background-color: $color;
+                }
+              }
+            }
+            @each $skill, $percent in $skillsPercent{
+              &.skill-#{$skill}-box{
+                .skill-bar-wrap .skill-bar{
+                  width: $percent;
+                }
+              }
+            }
+            .skill-bar-wrap{
+              position: relative;
+              width: 100%;
+              height: 20px;
+              .skill-bar{
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 100;
+                height: 100%;
+                font-size: 16px;
+                padding: 2px 5px;
+                text-align: left;
+              }
+              .bar-bg{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $lightGray;
+              }
+            }
+          }
+        }
+      }
+      .project-window-content{
+        width: calc(100vw - 18px);
+        height: calc(100vh - 90px);
+        background: none;
+        overflow: hidden;
+        &::before{
+          content: '';
+          width: 1924px;
+          height: 1925px;
+          background: url(../images/background-shodow-line-000-rotate.png) no-repeat;
+          position: absolute;
+          background-size: contain;
+          top: 0;
+          left: 0;
+          z-index: -1;
+        }
+        &::after{
+          content: '';
+          width: 1924px;
+          height: 1925px;
+          background: url(../images/background-shodow-line-fff-rotate.png) no-repeat;
+          position: absolute;
+          background-size: contain;
+          bottom: 0;
+          right: 0;
+          z-index: -1;
+        }
+        .iframe-box{
+          background-color: $white;
+        }
+        .scroll-down-btn{
+          &::before{
+            content: '';
+            height: 24px;
+            width: calc(100vw - 48px);
+            background-color: $lightGray;
+            position: absolute;
+            bottom: -25px;
+            left: calc(-100vw + 47px);
+          }
+          &::after{
+            content: '';
+            height: 24px;
+            width: 214px;
+            background: url(../images/iframe-botton-right-img.png) no-repeat;
+            position: absolute;
+            bottom: -25px;
+            left: -1px;
+          }
+        }
+      }
+      .profile-window-content{
+        left: 30px;
+        transform: unset;
+        .tap-profile-content{
+          display: none;
+        }
+        .resized-content{
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          text-align: left;
+          width: 80vw;
+          height: 80vh;
+          border: 1px solid #000;
+          gap: 0 10%;
+          .profile-box{
+            width: 45%;
+            span{
+              font-size: 20px;
+              line-height: 26px;
+              display: block;
+              &:nth-child(1){
+                margin-bottom: 10px;
+              }
+            }
+            p{
+              font-size: 20px;
+              line-height: 26px;
+            }
+            h6{
+              font-size: 20px;
+              line-height: 26px;
+            }
+          }
+          .profile-tap-title{
+            font-size: 28px;
+            margin: 20px 0;
+          }
+        }
+      }
+      &.project-folder-window-content{
+        .project-window-content{
+          background-color: $white;
+        }
+      }
+      .project-skills-window-content{
+        background: unset;
+        margin: unset;
+      }
+      .project-folder-window-content{
+        width: calc(100% - 18px);
+        height: calc(100% - 77px);
+        background: unset;
+        overflow: hidden;
+        z-index: 10;
+        &::before{
+          content: '';
+          width: 1924px;
+          height: 1925px;
+          background: url(../images/background-shodow-line-000-rotate.png) no-repeat;
+          background-color: $white;
+          position: absolute;
+          background-size: contain;
+          top: 0;
+          left: 0;
+          z-index: -1;
+        }
+        &::after{
+          content: '';
+          width: 1924px;
+          height: 1925px;
+          background: url(../images/background-shodow-line-fff-rotate.png) no-repeat;
+          position: absolute;
+          background-size: contain;
+          bottom: 0;
+          right: 0;
+          z-index: -1;
+        }
+      }
+    }
+  }
+}
+
+.section02{
+  .project-window-frame.resize{
+    .project-window-content{
+      .iframe-box{
+        iframe{
+          height: 5800px;
+        }
+      }
+    }
+  }
+}
+
+/*#####section01#####*/
+#intro-section{
+  color: $white;
+  z-index: 999999999;
+  .typing{
+    font-size: 4.6875vw;
+  }
+  .text-cursor{
+    display: inline-block;
+    width: 3px;
+    height: 90px;
+    background-color: #fff;
+    margin-left: 2px;
+    transform: translateY(12px);
+    animation: textCursor 0.7s infinite;
+  }
+}
+
+@keyframes textCursor {
+  0%{opacity: 1;}
+  50%{opacity: 0;}
+  100% { opacity: 1; }
+}
+
+/*#####section02#####*/
+$skills : (
+  html : #E65100,
+  css : #42A5F5,
+  javascript : #FFCA28,
+  scss : #EC407A,
+  react : #00BCD4,
+  swiper : #0080FF,
+  api : #00DF63,
+  json : #DE9825,
+  jquery : #0766A1,
+  figma : #874FFF,
+  ai : #FF9A00,
+  ps : #288FDB,
+  blender : #E87D0D,
+  vscode : #25B0F3,
+  github : #F6F8FA,
+  netlify : #06BDBA,
+);
+
+$skillsPercent : (
+  html: 95%,
+  css: 90%,
+  javascript: 80%,
+  scss: 85%,
+  react: 80%,
+  swiper : 90%,
+  api : 85%,
+  json : 85%,
+  jquery : 70%,
+  figma : 90%,
+  ai : 90%,
+  ps : 50%,
+  blender : 40%,
+  vscode : 95%,
+  github : 90%,
+  netlify : 60%,
+);
+
+.section02{
+  position: relative;
+  color: $black;
+  .skills-window-frame{
+    width: 800px;
+    height: 700px;
+    background: url(../images/background-shodow-line-800_700.png) no-repeat;
+    background-color: $windowFrameBackgroundColor;
+    right: 90px;
+    bottom: 120px;
+    .skills-window-titlebar{
+      width: 790px;
+    }
+    .skills-window-content{
+      width: 764px;
+      height: 631px;
+      position: relative;
+      position: absolute;
+      overflow: hidden;
+      left: 18px;
+      top: 51px;
+      z-index: 0;
+      .skill-tap{
+        width: 100%;
+        height: 100%;
+        .skill-tap-title{
+          width: 127px;
+          height: 27px;
+          background: url(../images/background-shodow-line-skills-tap-btn.png) no-repeat;
+          background-color: $windowFrameBackgroundColor;
+          font-size: 18px;
+          text-align: center;
+          padding-top: 5px;
+          position: absolute;
+          top: 0;
+          cursor: pointer;
+        }
+        &.dev-tools .skill-tap-title{
+          left: 0;
+        }
+        &.tools-api .skill-tap-title{
+          left: 127px;
+        }
+        &.design-tools .skill-tap-title{
+          left: 254px;
+        }
+        &.deployment-environment .skill-tap-title{
+          left: 381px;
+        }
+        .skill-tap-content{
+          width: 764px;
+          height: 604px;
+          padding: 79px 35px;
+          z-index: 100;
+          opacity: 0;
+          position: absolute;
+          top: 27px;
+          left: 0;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(3, 1fr);
+          justify-items: center;
+          align-items: center;
+          gap: 40px 20px;
+          .skill-box{
+            display: flex;
+            gap: 24px;
+            width: 337px;
+            height: 123px;
+            @each $skill, $color in $skills{
+              &.skill-#{$skill}-box{
+                .skill-bar-wrap .skill-bar{
+                  background-color: $color;
+                }
+              }
+            }
+            @each $skill, $percent in $skillsPercent{
+              &.skill-#{$skill}-box{
+                .skill-bar-wrap .skill-bar{
+                  width: $percent;
+                }
+              }
+            }
+            img{
+              height: 123px;
+            }
+            .skill-description{
+              height: 123px;
+              padding: 5px 0;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              span{
+                font-size: 16px;
+                display: inline-block;
+                text-align: left;
+              }
+              .skill-bar-wrap{
+                position: relative;
+                width: 200px;
+                height: 20px;
+                .skill-bar{
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  z-index: 100;
+                  height: 100%;
+                  font-size: 16px;
+                  padding: 2px 5px;
+                  text-align: left;
+                }
+                .bar-bg{
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: $lightGray;
+                }
+              }
+            }
+          }
+        }
+        &.dev-tools .skill-tap-content{
+          background: url(../images/background-shodow-line-skills-tap-01.png) no-repeat;
+          background-color: $windowFrameBackgroundColor;
+        }
+        &.tools-api .skill-tap-content{
+          background: url(../images/background-shodow-line-skills-tap-02.png) no-repeat;
+          background-color: $windowFrameBackgroundColor;
+        }
+        &.design-tools .skill-tap-content{
+          background: url(../images/background-shodow-line-skills-tap-03.png) no-repeat;
+          background-color: $windowFrameBackgroundColor;
+        }
+        &.deployment-environment .skill-tap-content{
+          background: url(../images/background-shodow-line-skills-tap-04.png) no-repeat;
+          background-color: $windowFrameBackgroundColor;
+        }
+        &.active{
+          .skill-tap-content{
+            opacity: 1;
+          }
+        }
+      }
+      .resized-content{
+        display: none;
+      }
+    }
+    
+  }
+  .profile-window-frame{
+    width: 750px;
+    height: 480px;
+    background: url(../images/background-shodow-line-750_480.png) no-repeat;
+    background-color: $windowFrameBackgroundColor;
+    top: 116px;
+    left: 228px;
+    .profile-window-titlebar{
+      width: 740px;
+    }
+    .profile-window-content{
+      position: absolute;
+      top: 66px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 30px;
+      .basic-profile-content{
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        img{
+          height: 200px;
+          margin-bottom: 15px;
+        }
+        span{
+          font-size: 18px;
+          line-height: 28px;
+        }
+      }
+      .tap-profile-content{
+        width: 454px;
+        height: 381px;
+        position: relative;
+        z-index: 0;
+        .profile-tap{
+          position: absolute;
+          top: 0;
+          left: 0;
+          .profile-tap-title{
+            width: 68px;
+            height: 25px;
+            background: url(../images/background-shodow-line-profile-tap-btn.png) no-repeat;
+            background-color: $windowFrameBackgroundColor;
+            font-size: 18px;
+            text-align: center;
+            padding-top: 5px;
+            position: absolute;
+            top: 0;
+            cursor: pointer;
+          }
+          &.introduction .profile-tap-title{
+            left: 0;
+          }
+          &.experience .profile-tap-title{
+            left: 68px;
+          }
+          &.certifications .profile-tap-title{
+            left: 136px;
+          }
+          .profile-box{
+            width: 454px;
+            height: 356px;
+            padding: 23px;
+            z-index: 100;
+            position: absolute;
+            top: 25px;
+            left: 0;
+            opacity: 0;
+            text-align: left;
+            span{
+              font-size: 20px;
+              line-height: 24px;
+              display: inline-block;
+              margin-bottom: 14px;
+            }
+            p{
+              font-size: 18px;
+              line-height: 26px;
+            }
+            h5{
+              font-size: 20px;
+              line-height: 22px;
+              margin: 10px 0;
+            }
+            h6{
+              font-size: 16px;
+              line-height: 20px;
+            }
+          }
+          &.introduction .profile-box{
+            background: url(../images/background-shodow-line-profile-tap-01.png) no-repeat;
+            background-color: $windowFrameBackgroundColor;
+          }
+          &.experience .profile-box{
+            background: url(../images/background-shodow-line-profile-tap-02.png) no-repeat;
+            background-color: $windowFrameBackgroundColor;
+          }
+          &.certifications .profile-box{
+            background: url(../images/background-shodow-line-profile-tap-03.png) no-repeat;
+            background-color: $windowFrameBackgroundColor;
+          }
+          &.active{
+            .profile-box{
+              opacity: 1;
+            }
+          }
+        }
+      }
+      .resized-content{
+        display: none;
+      }
+    }
+  }
+  .project-folder-window-frame{
+    width: 800px;
+    height: 457px;
+    background: url(../images/background-shodow-line-800_457.png) no-repeat;
+    background-color: $windowFrameBackgroundColor;
+    left: 478px;
+    bottom: 76px;
+    z-index: 99999;
+    .project-window-titlebar{
+      width: 790px;
+    }
+    .project-window-menu{
+      width: 790px;
+      height: 20px;
+      margin: 6px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      span{
+        font-size: 20px;
+        line-height: 20px;
+        display: block;
+        padding: 5px 10px;
+        cursor: pointer;
+        &:hover{
+          background-color: #A0A0A0;
+        }
+        b{
+          text-decoration: underline;
+          font-weight: normal;
+        }
+      }
+    }
+    .project-folder-window-content{
+      width: 782px;
+      height: 380px;
+      background: url(../images/background-shodow-line-782_380.png) no-repeat;
+      background-color: $white;
+      position: relative;
+      position: absolute;
+      left: 9px;
+      top: 68px;
+      .folder-content{
+        width: 100%;
+        height: 100%;
+        padding: 18px 37px;
+        gap: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        flex-wrap: wrap;
+        &.active{
+          display: flex;
+        }
+        img{
+          width: 90px;
+          height: 90px;
+          object-fit: contain;
+        }
+        span{
+          font-size: 28px;
+          line-height: 28px;
+          text-wrap: nowrap;
+        }
+        .folder-icon{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 98px;
+          height: 151px;
+          gap: 5px;
+          cursor: pointer;
+        }
+        .project-icon, .mini-icon, .sub-icon{
+          width: 98px;
+          height: 151px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 14px;
+          cursor: pointer;
+        }
+        .up-folder-icon{
+          width: 98px;
+          height: 151px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .project-one-skills-window-frame{
+    width: 738px;
+    height: 404px;
+    background: url(../images/background-shodow-line-738_404.png) no-repeat;
+    background-color: $windowFrameBackgroundColor;
+    top: 80px;
+    right: 70px;
+    .project-skills-window-titlebar{
+      width: 728px;
+    }
+    .project-skills-window-content{
+      width: 720px;
+      height: 353px;
+      margin: 6px auto;
+      background: url(../images/background-shodow-line-720_353.png) no-repeat;
+      background-color: $white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      span{
+        width: 623px;
+        font-size: 18px;
+        line-height: 24px;
+        text-align: left;
+        display: block;
+        margin-bottom: 13px;
+      }
+      .skills-wrap{
+        width: 623px;
+        display: flex;
+        justify-content: space-between;
+        img{
+          height: 83px;
+        }
+      }
+    }
+  }
+  .project-one-window-frame{
+    width: 1032px;
+    height: 677px;
+    background: url(../images/background-shodow-line-1032_677.png) no-repeat;
+    background-color: $windowFrameBackgroundColor;
+    top: 190px;
+    left: 132px;
+    .project-window-titlebar{
+      width: 1022px;
+    }
+    .project-window-content{
+      width: 1014px;
+      height: 626px;
+      background: url(../images/background-shodow-line-browserver-1014_626.png) no-repeat;
+      background-color: $white;
+      margin: 6px auto;
+      padding: 3px;
+      position: relative;
+      .scroll-btn{
+        width: 22px;
+        height: 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        position: absolute;
+        right: 4px;
+        background: url(../images/background-shodow-line-22_22.png) no-repeat;
+        background-color: $windowFrameBackgroundColor;
+        z-index: 999999999;
+        &.scroll-up-btn{
+          top: 4px;
+        }
+        &.scroll-down-btn{
+          bottom: 28px;
+          img{
+            transform: rotate(180deg);
+          }
+        }
+        &.clicked{
+          background: url(../images/background-shodow-line-22_22-hover.png) no-repeat;
+          background-color: $windowFrameBackgroundColor;
+        }
+      }
+      .iframe-box{
+        width: 100%;
+        height: calc(100% - 24px);
+        overflow: auto;
+        position: relative;
+        &.clicked{
+          iframe{
+            pointer-events: none;
+          }
+        }
+        iframe{
+          width: 100%;
+          height: 6700px;
+        }
+        &::-webkit-scrollbar{
+          width: 24px;
+          background: #D9D9D9;
+          padding: 24px;
+        }
+        &::-webkit-scrollbar-thumb{
+            height: 200px;
+            border-top: 24px solid #D9D9D9;
+            border-bottom: 24px solid #D9D9D9;
+            border-left: 1px solid #D9D9D9;
+            border-right: 1px solid #D9D9D9;
+            background: url(../images/background-shodow-line-scrollbarver-22_152.png) no-repeat;
+            background-color: $windowFrameBackgroundColor;
+        }
+      }
+    }
+  }
+  .project-two-skills-window-frame{
+    width: 738px;
+    height: 404px;
+    background: url(../images/background-shodow-line-738_404.png) no-repeat;
+    background-color: $windowFrameBackgroundColor;
+    left: 162px;
+    bottom: 122px;
+    .project-skills-window-titlebar{
+      width: 728px;
+    }
+    .project-skills-window-content{
+      width: 720px;
+      height: 353px;
+      margin: 6px auto;
+      background: url(../images/background-shodow-line-720_353.png) no-repeat;
+      background-color: $white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      span{
+        width: 623px;
+        font-size: 18px;
+        line-height: 24px;
+        text-align: left;
+        display: block;
+        margin-bottom: 13px;
+      }
+      .skills-wrap{
+        width: 623px;
+        display: flex;
+        justify-content: space-between;
+        img{
+          height: 83px;
+        }
+      }
+    }
+  }
+  .project-two-window-frame{
+    width: 1032px;
+    height: 581px;
+    background: url(../images/background-shodow-line-1032_581.png) no-repeat;
+    background-color: $windowFrameBackgroundColor;
+    top: 64px;
+    right: 69px;
+    .project-window-titlebar{
+      width: 1022px;
+    }
+    .project-window-content{
+      width: 1014px;
+      height: 530px;
+      background: url(../images/background-shodow-line-browserver-1014_530.png) no-repeat;
+      background-color: $white;
+      margin: 6px auto;
+      padding: 3px;
+      position: relative;
+      .scroll-btn{
+        width: 22px;
+        height: 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        position: absolute;
+        right: 4px;
+        background: url(../images/background-shodow-line-22_22.png) no-repeat;
+        background-color: $windowFrameBackgroundColor;
+        z-index: 999999999;
+        &.scroll-up-btn{
+          top: 4px;
+        }
+        &.scroll-down-btn{
+          bottom: 28px;
+          img{
+            transform: rotate(180deg);
+          }
+        }
+        &.clicked{
+          background: url(../images/background-shodow-line-22_22-hover.png) no-repeat;
+          background-color: $windowFrameBackgroundColor;
+        }
+      }
+      .iframe-box{
+        width: 100%;
+        height: calc(100% - 24px);
+        iframe{
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  .project-three-window-frame{
+    width: 1032px;
+    height: 581px;
+    background: url(../images/background-shodow-line-1032_581.png) no-repeat;
+    background-color: $windowFrameBackgroundColor;
+    top: 20px;
+    left: 60px;
+    .project-window-titlebar{
+      width: 1022px;
+    }
+    .project-window-content{
+      width: 1014px;
+      height: 530px;
+      background: url(../images/background-shodow-line-browserver-1014_530.png) no-repeat;
+      background-color: $white;
+      margin: 6px auto;
+      padding: 3px;
+      position: relative;
+      .scroll-btn{
+        width: 22px;
+        height: 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        position: absolute;
+        right: 4px;
+        background: url(../images/background-shodow-line-22_22.png) no-repeat;
+        background-color: $windowFrameBackgroundColor;
+        z-index: 999999999;
+        &.scroll-up-btn{
+          top: 4px;
+        }
+        &.scroll-down-btn{
+          bottom: 28px;
+          img{
+            transform: rotate(180deg);
+          }
+        }
+        &.clicked{
+          background: url(../images/background-shodow-line-22_22-hover.png) no-repeat;
+          background-color: $windowFrameBackgroundColor;
+        }
+      }
+      .iframe-box{
+        width: 100%;
+        height: calc(100% - 24px);
+        iframe{
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  .project-three-skills-window-frame{
+    width: 738px;
+    height: 404px;
+    background: url(../images/background-shodow-line-738_404.png) no-repeat;
+    background-color: $windowFrameBackgroundColor;
+    top: 80px;
+    right: 70px;
+    .project-skills-window-titlebar{
+      width: 728px;
+    }
+    .project-skills-window-content{
+      width: 720px;
+      height: 353px;
+      margin: 6px auto;
+      background: url(../images/background-shodow-line-720_353.png) no-repeat;
+      background-color: $white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      span{
+        width: 623px;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: left;
+        display: block;
+        margin-bottom: 13px;
+      }
+      .skills-wrap{
+        width: 623px;
+        display: flex;
+        justify-content: space-between;
+        img{
+          height: 83px;
+        }
+      }
+    }
+  }
+  .mini-window-frame{
+    width: 519px;
+    height: 529px;
+    background: url(../images/background-shodow-line-519_529.png) no-repeat;
+    background-color: $windowFrameBackgroundColor;
+    top: 320px;
+    left: 1230px;
+    .project-window-titlebar{
+      width: 509px;
+    }
+    .project-window-content{
+      width: 501px;
+      height: 478px;
+      background: url(../images/background-shodow-line-501_478.png) no-repeat;
+      background-color: $white;
+      margin: 6px auto;
+      padding: 3px;
+      position: relative;
+      .scroll-btn{
+        width: 22px;
+        height: 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        position: absolute;
+        right: 4px;
+        background: url(../images/background-shodow-line-22_22.png) no-repeat;
+        background-color: $windowFrameBackgroundColor;
+        z-index: 999999999;
+        &.scroll-up-btn{
+          top: 4px;
+        }
+        &.scroll-down-btn{
+          bottom: 28px;
+          img{
+            transform: rotate(180deg);
+          }
+        }
+        &.clicked{
+          background: url(../images/background-shodow-line-22_22-hover.png) no-repeat;
+          background-color: $windowFrameBackgroundColor;
+        }
+      }
+      .iframe-box{
+        width: 100%;
+        height: calc(100% - 24px);
+        overflow: auto;
+        position: relative;
+        &.clicked{
+          iframe{
+            pointer-events: none;
+          }
+        }
+        iframe{
+          width: 100%;
+          height: 5745px;
+        }
+        &::-webkit-scrollbar{
+          width: 24px;
+          background: #D9D9D9;
+          padding: 24px;
+        }
+        &::-webkit-scrollbar-thumb{
+            height: 200px;
+            border-top: 24px solid #D9D9D9;
+            border-bottom: 24px solid #D9D9D9;
+            border-left: 1px solid #D9D9D9;
+            border-right: 1px solid #D9D9D9;
+            background: url(../images/background-shodow-line-scrollbarver-22_152.png) no-repeat;
+            background-color: $windowFrameBackgroundColor;
+        }
+      }
+    }
+  }
+}
+
+/*#####shutdown_page#####*/
+.shutdown-page{
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: #0200A9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  #terminal-container{
+    width: 80%;
+    height: 50%;
+    #terminal-text{
+      font-size: 40px;
+      line-height: 50px;
+      white-space: pre-wrap;
+      color: $white;
+    }
+  }
+  .on-box{
+    height: 56px;
+    width: 8%;
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    img{
+      width: 56px;
+    }
+    span{
+      color: $white;
+      font-size: 20px;
+    }
+  }
+}

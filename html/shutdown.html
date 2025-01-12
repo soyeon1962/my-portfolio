@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정소연94</title>
+  <link rel="icon" type="image/png" href="images/taskbar-start-icon.png" />
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <section class="shutdown-page">
+    <div id="terminal-container">
+      <div id="terminal-text"></div>
+    </div>
+    <div class="on-box">
+      <img src="../images/on-icon.png" alt="">
+      <span>전원켜기</span>
+    </div>
+  </section>
+  <script>
+    const terminalText = document.getElementById('terminal-text');
+    const textContent = `
+      Dead Tech Terminal
+      ==================
+      > Connecting to the past...
+      > Loading retro protocols...
+      > Analyzing obsolete technologies...
+      > "Technology from the past, to inspire the future"
+      > Ready to proceed...
+    `;
+
+    function typeText() {
+      let index = 0;
+      terminalText.innerHTML = ''; // Clear text before starting again
+
+      function type() {
+        if (index < textContent.length) {
+          terminalText.innerHTML += textContent.charAt(index);
+          index++;
+          setTimeout(type, Math.random() * 100 + 50);
+        } else {
+          setTimeout(() => {
+            typeText(); // Restart the animation after a delay
+          }, 2000);
+        }
+      }
+
+      type();
+    }
+
+    typeText();
+
+    const onBtn = document.querySelector('.on-box');
+
+    onBtn.addEventListener('click', function(){
+      window.location.replace('../index.html');
+    });
+  </script>
+</body>
+</html>
