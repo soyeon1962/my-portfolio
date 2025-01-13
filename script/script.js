@@ -409,7 +409,7 @@ projectThreeBar.addEventListener('click', function(){
   });
 
   shutdownBtn.addEventListener('click', function(){
-    window.location.replace('./html/shutdown.html')
+    window.location.replace('../html/shutdown.html')
   });
 });
 
@@ -631,7 +631,11 @@ miniProjectIcon.forEach(function(mini){
 
 subProjectIcon.forEach(function(sub){
   sub.addEventListener('dblclick', function(){
-    window.open(`https://soyeon1962.github.io/sub-project-0${sub.dataset.link}/`, '_blank');
+    if(sub.dataset.link <= 1){
+      window.open(`https://soyeon1962.github.io/sub-project-0${sub.dataset.link}/`, '_blank');
+    }else{
+      window.open(`https://sub-project-0${sub.dataset.link}.netlify.app/`, '_blank');
+    };
   });
 });
 
