@@ -13,7 +13,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   outline: none;
   font-weight: 400;
 }
@@ -48,7 +49,8 @@ body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-use-select: none;
-  user-select: none;
+  -ms-user-select: none;
+      user-select: none;
 }
 
 /*#####풀페이지#####*/
@@ -76,16 +78,32 @@ body.lock-scroll .section01 {
   width: 172px;
   height: 551px;
   padding: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   z-index: 0;
 }
 .win98-dock .win98-icon-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 14px;
   cursor: pointer;
 }
@@ -99,6 +117,8 @@ body.lock-scroll .section01 {
 }
 
 .window-frame .window-titlebar .titlebar-button-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 3px;
   margin-top: 2px;
@@ -169,6 +189,7 @@ body.lock-scroll .section01 {
   background-color: #C0C0C0;
   bottom: -239px;
   left: 0;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
   opacity: 0;
   z-index: 0;
@@ -180,6 +201,7 @@ body.lock-scroll .section01 {
 .taskbar-container .start-menu .gradiant-bar {
   width: 35px;
   height: 84px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0055D4), to(#010088));
   background: linear-gradient(to bottom, #0055D4 0%, #010088 100%);
   position: absolute;
   top: 1px;
@@ -190,8 +212,12 @@ body.lock-scroll .section01 {
   height: 43px;
   width: 188px;
   right: 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 0 12px;
   cursor: pointer;
 }
@@ -275,6 +301,8 @@ body.lock-scroll .section01 {
 }
 .taskbar-container .start-button span {
   left: 35px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 .taskbar-container .start-button.clicked {
@@ -304,6 +332,8 @@ body.lock-scroll .section01 {
   height: 33px;
   top: 2px;
   left: 86px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 5px;
 }
@@ -321,16 +351,21 @@ body.lock-scroll .section01 {
   padding: 0 10px;
 }
 .taskbar-container .tray .tray-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 100%;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 5px;
 }
 .taskbar-container .tray span {
   position: absolute;
   top: 50%;
   left: 84px;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   font-size: 16px;
 }
 
@@ -342,10 +377,15 @@ body.lock-scroll .section01 {
 }
 .window-frame .window-titlebar {
   height: 31px;
+  background: -webkit-gradient(linear, left top, right top, from(#0055D4), to(#010088));
   background: linear-gradient(90deg, #0055D4 0%, #010088 100%);
   padding: 1px 3px 6px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   cursor: pointer;
 }
 .window-frame .window-titlebar h3 {
@@ -355,6 +395,39 @@ body.lock-scroll .section01 {
 }
 .window-frame.minimize {
   display: none;
+}
+.window-frame .project-skills-window-content {
+  position: relative;
+}
+.window-frame .project-skills-window-content .link-button {
+  width: 79px;
+  height: 33px;
+  font-size: 16px;
+  line-height: 33px;
+  text-wrap: wrap;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+}
+.window-frame .project-skills-window-content .link-button.link-page {
+  background: url(../images/background-shodow-line-79_33.png) no-repeat;
+  background-color: #C0C0C0;
+  right: 101px;
+}
+.window-frame .project-skills-window-content .link-button.link-page.clicked {
+  background: url(../images/background-shodow-line-79_33-hover.png) no-repeat;
+  background-color: #C0C0C0;
+}
+.window-frame .project-skills-window-content .link-button.link-github {
+  background: url(../images/background-shodow-line-79_33.png) no-repeat;
+  background-color: #1F2328;
+  color: #F6F8FA;
+  right: 15px;
+}
+.window-frame .project-skills-window-content .link-button.link-github.clicked {
+  background: url(../images/background-shodow-line-79_33-hover.png) no-repeat;
+  background-color: #1F2328;
 }
 
 div.section .window-frame.resize {
@@ -398,20 +471,28 @@ div.section .window-frame.resize .skills-window-content {
   height: calc(100dvh - 218px);
   left: 50%;
   top: 109px;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 div.section .window-frame.resize .skills-window-content .skill-tap {
   display: none;
 }
 div.section .window-frame.resize .skills-window-content .resized-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   gap: 3.2vh 0;
 }
 div.section .window-frame.resize .skills-window-content .resized-content .skill-box {
   width: 22.8vw;
   min-width: 337px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 1.6vw;
 }
@@ -419,11 +500,20 @@ div.section .window-frame.resize .skills-window-content .resized-content .skill-
   height: 8.2vw;
 }
 div.section .window-frame.resize .skills-window-content .resized-content .skill-box .skill-description {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   margin: 0.3333vw 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 div.section .window-frame.resize .skills-window-content .resized-content .skill-box .skill-description span {
   width: 100%;
@@ -602,15 +692,22 @@ div.section .window-frame.resize .project-window-content .scroll-down-btn::after
 }
 div.section .window-frame.resize .profile-window-content {
   left: 30px;
-  transform: unset;
+  -webkit-transform: unset;
+          transform: unset;
 }
 div.section .window-frame.resize .profile-window-content .tap-profile-content {
   display: none;
 }
 div.section .window-frame.resize .profile-window-content .resized-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   text-align: left;
   width: 80vw;
   height: 80vh;
@@ -696,8 +793,22 @@ div.section .window-frame.resize .project-folder-window-content::after {
   height: 90px;
   background-color: #fff;
   margin-left: 2px;
-  transform: translateY(12px);
-  animation: textCursor 0.7s infinite;
+  -webkit-transform: translateY(12px);
+          transform: translateY(12px);
+  -webkit-animation: textCursor 0.7s infinite;
+          animation: textCursor 0.7s infinite;
+}
+
+@-webkit-keyframes textCursor {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes textCursor {
@@ -778,10 +889,14 @@ div.section .window-frame.resize .project-folder-window-content::after {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
   justify-items: center;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 40px 20px;
 }
 .section02 .skills-window-frame .skills-window-content .skill-tap .skill-tap-content .skill-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 24px;
   width: 337px;
@@ -889,9 +1004,16 @@ div.section .window-frame.resize .project-folder-window-content::after {
 .section02 .skills-window-frame .skills-window-content .skill-tap .skill-tap-content .skill-box .skill-description {
   height: 123px;
   padding: 5px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .section02 .skills-window-frame .skills-window-content .skill-tap .skill-tap-content .skill-box .skill-description span {
   font-size: 16px;
@@ -958,14 +1080,22 @@ div.section .window-frame.resize .project-folder-window-content::after {
   position: absolute;
   top: 66px;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 30px;
 }
 .section02 .profile-window-frame .profile-window-content .basic-profile-content {
   width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .section02 .profile-window-frame .profile-window-content .basic-profile-content img {
   height: 200px;
@@ -1071,9 +1201,15 @@ div.section .window-frame.resize .project-folder-window-content::after {
   width: 790px;
   height: 20px;
   margin: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .section02 .project-folder-window-frame .project-window-menu span {
   font-size: 20px;
@@ -1108,15 +1244,19 @@ div.section .window-frame.resize .project-folder-window-content::after {
   top: 0;
   left: 0;
   display: none;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .section02 .project-folder-window-frame .project-folder-window-content .folder-content.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .section02 .project-folder-window-frame .project-folder-window-content .folder-content img {
   width: 90px;
   height: 90px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .section02 .project-folder-window-frame .project-folder-window-content .folder-content span {
   font-size: 28px;
@@ -1124,9 +1264,16 @@ div.section .window-frame.resize .project-folder-window-content::after {
   text-wrap: nowrap;
 }
 .section02 .project-folder-window-frame .project-folder-window-content .folder-content .folder-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 98px;
   height: 151px;
   gap: 5px;
@@ -1135,18 +1282,32 @@ div.section .window-frame.resize .project-folder-window-content::after {
 .section02 .project-folder-window-frame .project-folder-window-content .folder-content .project-icon, .section02 .project-folder-window-frame .project-folder-window-content .folder-content .mini-icon, .section02 .project-folder-window-frame .project-folder-window-content .folder-content .sub-icon {
   width: 98px;
   height: 151px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 14px;
   cursor: pointer;
 }
 .section02 .project-folder-window-frame .project-folder-window-content .folder-content .up-folder-icon {
   width: 98px;
   height: 151px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 15px;
   cursor: pointer;
 }
@@ -1167,10 +1328,19 @@ div.section .window-frame.resize .project-folder-window-content::after {
   margin: 6px auto;
   background: url(../images/background-shodow-line-720_353.png) no-repeat;
   background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .section02 .project-one-skills-window-frame .project-skills-window-content span {
   width: 623px;
@@ -1182,8 +1352,12 @@ div.section .window-frame.resize .project-folder-window-content::after {
 }
 .section02 .project-one-skills-window-frame .project-skills-window-content .skills-wrap {
   width: 623px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .section02 .project-one-skills-window-frame .project-skills-window-content .skills-wrap img {
   height: 83px;
@@ -1211,9 +1385,15 @@ div.section .window-frame.resize .project-folder-window-content::after {
 .section02 .project-one-window-frame .project-window-content .scroll-btn {
   width: 22px;
   height: 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   cursor: pointer;
   position: relative;
   position: absolute;
@@ -1229,7 +1409,8 @@ div.section .window-frame.resize .project-folder-window-content::after {
   bottom: 28px;
 }
 .section02 .project-one-window-frame .project-window-content .scroll-btn.scroll-down-btn img {
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 .section02 .project-one-window-frame .project-window-content .scroll-btn.clicked {
   background: url(../images/background-shodow-line-22_22-hover.png) no-repeat;
@@ -1279,10 +1460,19 @@ div.section .window-frame.resize .project-folder-window-content::after {
   margin: 6px auto;
   background: url(../images/background-shodow-line-720_353.png) no-repeat;
   background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .section02 .project-two-skills-window-frame .project-skills-window-content span {
   width: 623px;
@@ -1294,8 +1484,12 @@ div.section .window-frame.resize .project-folder-window-content::after {
 }
 .section02 .project-two-skills-window-frame .project-skills-window-content .skills-wrap {
   width: 623px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .section02 .project-two-skills-window-frame .project-skills-window-content .skills-wrap img {
   height: 83px;
@@ -1323,9 +1517,15 @@ div.section .window-frame.resize .project-folder-window-content::after {
 .section02 .project-two-window-frame .project-window-content .scroll-btn {
   width: 22px;
   height: 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   cursor: pointer;
   position: absolute;
   right: 4px;
@@ -1340,7 +1540,8 @@ div.section .window-frame.resize .project-folder-window-content::after {
   bottom: 28px;
 }
 .section02 .project-two-window-frame .project-window-content .scroll-btn.scroll-down-btn img {
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 .section02 .project-two-window-frame .project-window-content .scroll-btn.clicked {
   background: url(../images/background-shodow-line-22_22-hover.png) no-repeat;
@@ -1377,9 +1578,15 @@ div.section .window-frame.resize .project-folder-window-content::after {
 .section02 .project-three-window-frame .project-window-content .scroll-btn {
   width: 22px;
   height: 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   cursor: pointer;
   position: absolute;
   right: 4px;
@@ -1394,7 +1601,8 @@ div.section .window-frame.resize .project-folder-window-content::after {
   bottom: 28px;
 }
 .section02 .project-three-window-frame .project-window-content .scroll-btn.scroll-down-btn img {
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 .section02 .project-three-window-frame .project-window-content .scroll-btn.clicked {
   background: url(../images/background-shodow-line-22_22-hover.png) no-repeat;
@@ -1425,10 +1633,19 @@ div.section .window-frame.resize .project-folder-window-content::after {
   margin: 6px auto;
   background: url(../images/background-shodow-line-720_353.png) no-repeat;
   background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .section02 .project-three-skills-window-frame .project-skills-window-content span {
   width: 623px;
@@ -1440,8 +1657,12 @@ div.section .window-frame.resize .project-folder-window-content::after {
 }
 .section02 .project-three-skills-window-frame .project-skills-window-content .skills-wrap {
   width: 623px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .section02 .project-three-skills-window-frame .project-skills-window-content .skills-wrap img {
   height: 83px;
@@ -1469,9 +1690,15 @@ div.section .window-frame.resize .project-folder-window-content::after {
 .section02 .mini-window-frame .project-window-content .scroll-btn {
   width: 22px;
   height: 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   cursor: pointer;
   position: relative;
   position: absolute;
@@ -1487,7 +1714,8 @@ div.section .window-frame.resize .project-folder-window-content::after {
   bottom: 28px;
 }
 .section02 .mini-window-frame .project-window-content .scroll-btn.scroll-down-btn img {
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 .section02 .mini-window-frame .project-window-content .scroll-btn.clicked {
   background: url(../images/background-shodow-line-22_22-hover.png) no-repeat;
@@ -1527,9 +1755,15 @@ div.section .window-frame.resize .project-folder-window-content::after {
   height: 100dvh;
   overflow: hidden;
   background-color: #0200A9;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
 }
 .shutdown-page #terminal-container {
@@ -1548,8 +1782,12 @@ div.section .window-frame.resize .project-folder-window-content::after {
   position: absolute;
   bottom: 10%;
   right: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 10px;
   cursor: pointer;
 }
@@ -1559,4 +1797,4 @@ div.section .window-frame.resize .project-folder-window-content::after {
 .shutdown-page .on-box span {
   color: #ffffff;
   font-size: 20px;
-}/*# sourceMappingURL=style.css.map */
+}

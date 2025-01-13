@@ -323,6 +323,39 @@ body.lock-scroll .section01{
   &.minimize{
     display: none;
   }
+  .project-skills-window-content{
+    position: relative;
+    .link-button{
+      width: 79px;
+      height: 33px;
+      font-size: 16px;
+      line-height: 33px;
+      text-wrap: wrap;
+      text-align: center;
+      cursor: pointer;
+      position: absolute;
+      top: 15px;
+      &.link-page{
+        background: url(../images/background-shodow-line-79_33.png) no-repeat;
+        background-color: $windowFrameBackgroundColor;
+        right: 101px;
+        &.clicked{
+          background: url(../images/background-shodow-line-79_33-hover.png) no-repeat;
+          background-color: $windowFrameBackgroundColor;
+        }
+      }
+      &.link-github{
+        background: url(../images/background-shodow-line-79_33.png) no-repeat;
+        background-color: #1F2328;
+        color: #F6F8FA;
+        right: 15px;
+        &.clicked{
+          background: url(../images/background-shodow-line-79_33-hover.png) no-repeat;
+          background-color: #1F2328;
+        }
+      }
+    }
+  }
 }
 
 $skills : (

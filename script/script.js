@@ -695,3 +695,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+const linkOnePage = document.querySelector('.link-one-page');
+const linkOneGithub = document.querySelector('.link-one-github');
+const linkTwoPage = document.querySelector('.link-two-page');
+const linkTwoGithub = document.querySelector('.link-two-github');
+const linkThreePage = document.querySelector('.link-three-page');
+const linkThreeGithub = document.querySelector('.link-three-github');
+
+linkOnePage.addEventListener('click', function(){
+  window.open('https://soyeon1962.github.io/project01/', '_blank');
+});
+linkOneGithub.addEventListener('click', function(){
+  window.open('https://github.com/soyeon1962/project01/', '_blank');
+});
+linkTwoPage.addEventListener('click', function(){
+  window.open('https://soyeon1962.github.io/project-kbo/', '_blank');
+});
+linkTwoGithub.addEventListener('click', function(){
+  window.open('https://github.com/soyeon1962/project-kbo', '_blank');
+});
+linkThreePage.addEventListener('click', function(){
+  window.open('https://soyeon1962.github.io/my-portfolio/', '_blank');
+});
+linkThreeGithub.addEventListener('click', function(){
+  window.open('https://github.com/soyeon1962/my-portfolio', '_blank');
+});
+
+const linkButton = document.querySelectorAll('.link-button');
+
+linkButton.forEach(function(link){
+  link.addEventListener('mousedown', function(){
+    link.classList.add('clicked');
+  });
+  link.addEventListener('mouseup', function(){
+    link.classList.remove('clicked');
+  });
+});
