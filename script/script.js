@@ -409,7 +409,7 @@ projectThreeBar.addEventListener('click', function(){
   });
 
   shutdownBtn.addEventListener('click', function(){
-    window.location.replace('html/shutdown.html')
+    window.location.replace('./html/shutdown.html')
   });
 });
 
