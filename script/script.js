@@ -732,3 +732,9 @@ linkButton.forEach(function(link){
     link.classList.remove('clicked');
   });
 });
+
+const reactUrl = document.querySelector('.main-four');
+
+reactUrl.addEventListener('dblclick', function(){
+  window.open('https://frabjous-gingersnap-d74735.netlify.app/', '_blank')
+});
