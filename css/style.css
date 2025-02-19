@@ -832,7 +832,7 @@ div.section .window-frame.resize .project-folder-window-content::after {
   background: url(../images/background-shodow-line-800_700.png) no-repeat;
   background-color: #C0C0C0;
   right: 90px;
-  bottom: 120px;
+  bottom: 80px;
 }
 .section02 .skills-window-frame .skills-window-titlebar {
   width: 790px;
@@ -844,7 +844,7 @@ div.section .window-frame.resize .project-folder-window-content::after {
   position: absolute;
   overflow: hidden;
   left: 18px;
-  top: 151px;
+  top: 51px;
   z-index: 0;
 }
 .section02 .skills-window-frame .skills-window-content .skill-tap {
