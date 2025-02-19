@@ -844,7 +844,7 @@ div.section .window-frame.resize .project-folder-window-content::after {
   position: absolute;
   overflow: hidden;
   left: 18px;
-  top: 51px;
+  top: 151px;
   z-index: 0;
 }
 .section02 .skills-window-frame .skills-window-content .skill-tap {
